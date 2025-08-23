@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+.float-up-down {
+  animation: upDown 2s ease-in-out infinite;
+}
+
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* sobe 20px */
+  }
+}
+
+.rotate {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.btnoptions{
+
+}
+
+.btnoptions:hover{
+  background: linear-gradient(90deg, #184597, #3362a8, #6e8cdf);
+  background-size: 200% 200%;
+  transition: all 4ms ease;
+  transform: scale(1s);
+  animation:  3s ease infinite;
+}
+
+
+.btnoptionsBtn-RedesSociais:hover{
+  color:aliceblue;
+  transform:skew(15deg);
+  transition: all 4ms ease;
+  transform: scale(4s);
+  animation:  3s ease infinite;
+}
+
+.efectProjetos:hover{
+  
+  transform:skew(1deg);
+  transition: all 1s ease-in-out;
+  transform: scale(1.2);
+
+  animation:  3s ease-in;
+}
+
+
+.nivel {
+  
+  background: linear-gradient(90deg, #1b056b, #3458b9,#69b3d4);
+  border-radius: 30px;
+  transition: width 3s ease-in;
+}
+
