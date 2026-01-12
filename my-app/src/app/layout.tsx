@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Script from "next/script";
+import Script from "next/script"
 
 
 export const metadata: Metadata = {
@@ -15,14 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
       <head>
-         <Script
-  src="https://kit.fontawesome.com/2a40c3d92f.js"
-  strategy="afterInteractive"
-  crossOrigin="anonymous"
-/>
-
+        <Script src="https://kit.fontawesome.com/2a40c3d92f.js" crossOrigin="anonymous"/>
       </head>
       <body className="bg-black ">{children}</body>
     </html>
