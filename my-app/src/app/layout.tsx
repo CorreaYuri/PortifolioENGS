@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <head>
-        <script src="https://kit.fontawesome.com/2a40c3d92f.js" crossorigin="anonymous"></script>
+        <Script src="https://kit.fontawesome.com/2a40c3d92f.js" crossorigin="anonymous"/>
       </head>
       <body className="bg-black ">{children}</body>
     </html>
