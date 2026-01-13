@@ -74,7 +74,7 @@ export default function Home() {
               className="md:text-lg text-sm flex items-center gap-2"
               aria-label="Ir para opções"
             >
-              <span className="float-up-down"><i class="fa-solid fa-download text-blue-300"></i></span>
+              <span className="float-up-down"><i className="fa-solid fa-download text-blue-300"></i></span>
             </a>
           </div>
         </div>
