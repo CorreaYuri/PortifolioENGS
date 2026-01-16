@@ -83,7 +83,7 @@ export default function Home() {
 
               <div className="grid-cols-1 grid items-center justify-center gap-8 w-full md:flex md:flex-row  md:visible p-5 md:px-15"> 
               <Link className="bg-amber-50/10 px-4 py-4 btnoptions flex items-center justify-center gap-3" href="/#">
-                <i class="fa-solid fa-house"></i>
+                <i className="fa-solid fa-house"></i>
               </Link>
               
               <Link className=" bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center" href="#sobre">
