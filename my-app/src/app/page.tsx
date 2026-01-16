@@ -5,6 +5,7 @@ import fotoMaior from "../assets/IMG_1977 2.png"
 import projetoBancoPessoalImg from "../assets/imgbancopessoal.png"
 import projetoEcomerceImg from "../assets/imgProjetoE-comerce.png"
 import projetoToDoListImg from "../assets/imgtodoList.png"
+import Link from "next/link"
 
 const projects = [
   {
@@ -81,36 +82,36 @@ export default function Home() {
         </div>
 
               <div className="grid-cols-1 grid items-center justify-center gap-8 w-full md:flex md:flex-row  md:visible p-5 md:px-15"> 
-              <a className="bg-amber-50/10 px-4 py-4 btnoptions flex items-center justify-center gap-3" href="/#">
+              <Link className="bg-amber-50/10 px-4 py-4 btnoptions flex items-center justify-center gap-3" href="/#">
                 <i class="fa-solid fa-house"></i>
-              </a>
+              </Link>
               
-              <a className=" bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center" href="#sobre">
+              <Link className=" bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center" href="#sobre">
               
                 <i className="fa-solid fa-address-card"></i>
                 <a className="btnoptions  text-2xl md:text-1xl  " href="#sobre">Sobre</a>
               
-              </a>
+              </Link>
 
-              <a className="bg-amber-50/10   px-4 py-2 btnoptions flex items-center justify-center gap-3" href="##habilidade">
+              <Link className="bg-amber-50/10   px-4 py-2 btnoptions flex items-center justify-center gap-3" href="##habilidade">
               
                 <i className="fa-solid fa-brush"></i>
                 <a className="btnoptions  text-2xl md:text-1xl   " href="#habilidade">Habilidades</a>
               
-              </a>
+              </Link>
 
-              <a className="bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center gap-3" href="#projetos">
+              <Link className="bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center gap-3" href="#projetos">
                 <i className="fa-solid fa-hammer"></i>
                 <a className="btnoptions  text-2xl md:text-1xl   " href="#projetos">Projetos</a>
               
-              </a>
+              </Link>
 
-              <a className="bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center gap-3" href="#contato">
+              <Link className="bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center gap-3" href="#contato">
 
                 <i className="fa-solid fa-id-card"></i>
                 <a className="btnoptions  text-2xl md:text-1xl  " href="#contato">Contato</a>
               
-              </a>
+              </Link>
 
             </div>
 
