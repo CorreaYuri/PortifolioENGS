@@ -45,7 +45,7 @@ const socials = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
-      <div className="fixed bottom-120 right-5 z-50 text-2xl bg-white/10 backdrop-blur border-b border-white/10 shadow-xl/30 rounded-full">
+      <div className="fixed bottom-10 right-5 z-50 text-2xl bg-white/10 backdrop-blur border-b border-white/10 shadow-xl/30 rounded-full">
         <Link href="#home"
           className=" px-4 py-4 text-blue-400 flex items-center justify-center gap-3"
           aria-label="Voltar ao topo da página"
