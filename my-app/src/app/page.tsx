@@ -45,8 +45,16 @@ const socials = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <div className="fixed bottom-120 right-5 z-50 text-2xl bg-white/10 backdrop-blur border-b border-white/10 shadow-xl/30 rounded-full">
+        <Link href="#home"
+          className=" px-4 py-4 text-blue-400 flex items-center justify-center gap-3"
+          aria-label="Voltar ao topo da página"
+        >
+          <i className="fa-regular fa-circle-up"></i>
+        </Link>
+      </div>
       {/* HEADER */}
-      <header className="sticky top-0 z-50 w-full bg-white/10 backdrop-blur border-b border-white/10 shadow-xl/30 ">
+      <header className="sticky top-0 z-50 w-full bg-white/10 backdrop-blur border-b border-white/10 shadow-xl/30  ">
         <div className="mx-auto max-w-6xl px-4 py-4 ">
           <div className="flex items-center justify-between gap-4">
             {/* perfil */}
@@ -66,7 +74,7 @@ export default function Home() {
             {/* centro */}
             <div className="text-center text-xs md:text-base">
               <div className="opacity-90 md:text-2xl">Bem-vindo</div>
-              <div className="font-semibold tracking-wide text-blue-400 md:text-2xl">PORTIFÓLIO</div>
+              <div className="font-semibold tracking-wide text-blue-400 md:text-2xl ">PORTIFÓLIO</div>
             </div>
 
             {/* seta */}
@@ -81,22 +89,22 @@ export default function Home() {
           </div>
         </div>
 
-              <div className="grid-cols-1 grid items-center justify-center gap-8 w-full md:flex md:flex-row hidden  md:visible p-5 md:px-15"> 
+              <div className=" grid-cols-1  items-center justify-center gap-8 w-full border-2 border-amber-50  md:flex md:flex-row hidden  md:visible p-5 md:px-15"> 
               <Link className="bg-amber-50/10 px-4 py-4 btnoptions flex items-center justify-center gap-3" href="/#">
-                <i className="fa-solid fa-house"></i>
+                <i className="fa-solid fa-house"> </i>
               </Link>
               
-              <Link className=" bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center" href="#sobre">
+              <Link className=" bg-amber-50/10 px-4 py-4 btnoptions flex items-center justify-center gap-3" href="#sobre">
               
                 <i className="fa-solid fa-address-card"></i>
-                <a className="btnoptions  text-2xl md:text-1xl  " href="#sobre">Sobre</a>
+                <a className="btnoptions lex  text-2xl md:text-1xl  " href="#sobre">Sobre</a>
               
               </Link>
 
-              <Link className="bg-amber-50/10   px-4 py-2 btnoptions flex items-center justify-center gap-3" href="##habilidade">
+              <Link className="bg-amber-50/10   px-4 py-2 btnoptions flex items-center justify-center gap-3" href="#habilidade">
               
                 <i className="fa-solid fa-brush"></i>
-                <a className="btnoptions  text-2xl md:text-1xl   " href="#habilidade">Habilidades</a>
+                <a className="btnoptions  text-2xl md:text-1xl " href="#habilidade">Habilidades</a>
               
               </Link>
 
@@ -111,7 +119,7 @@ export default function Home() {
                 <i className="fa-solid fa-id-card"></i>
                 <a className="btnoptions  text-2xl md:text-1xl  " href="#contato">Contato</a>
               
-              </Link>
+              </Link>  
 
             </div>
 
@@ -119,27 +127,27 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative h-screen md:flex md: lg:h-[700px] xl:h-[800px] 2xl:h-[900px] md:h-screen">
+      <section className="relative h-screen grid grid-cols-1 md:flex  lg:h-[700px] xl:h-[800px] 2xl:h-[900px] md:h-screen">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-5  h-full  justify-center items-center flex md:w-full  ">
           <div className="flex flex-col items-center justify-center text-center gap-6 space-y-4 md:w-full md:h-full md:space-y-50">
            
             <div className="space-y-6  md:visible  ">
-              <h1 className="text-blue-500 text-3xl md:text-5xl font-semibold tracking-tight">
+              <h1 className="text-blue-500 text-xl md:text-5xl font-semibold tracking-tight">
                 ENGENHEIRO DE SOFTWARE
               </h1>
-              <p className="text-white/80 text-4xl ">
+              <p className="text-white/80 text-1xl ">
                 Apaixonado por tecnologia
               </p>
             </div>
 
             <div className="gap-5 flex flex-col p-5 md:flex md:flex-row ">
               <Image className="rotate h-16 w-16 mx-auto " src={MeiaIngrenagem} alt="" aria-hidden />
-              <Image className="rotate h-40 w-40 mx-auto -mt-2 opacity-90" src={MeiaIngrenagem} alt="" aria-hidden />
-              <Image className="rotate h-10 w-10 mx-auto -mt-2 opacity-90" src={MeiaIngrenagem} alt="" aria-hidden />
+              <Image className="rotate h-40 w-40 mx-auto mt-2 opacity-90" src={MeiaIngrenagem} alt="" aria-hidden />
+              <Image className="rotate h-10 w-10 mx-auto mt-2 opacity-90" src={MeiaIngrenagem} alt="" aria-hidden />
 
             </div>
 
-            <div className="space-y-2 md:hidden ">
+            <div className="space-y-2 md:hidden hidden ">
               <h1 className="text-blue-500 text-3xl md:text-4xl font-semibold tracking-tight">
                 ENGENHEIRO DE SOFTWARE
               </h1>
@@ -148,26 +156,36 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid-cols-1 grid items-center justify-center gap-3 w-full md:hidden ">
+            <div className="grid-cols-1 grid items-center justify-center gap-3 w-full md:hidden   ">
+
+              <Link href="#sobre">
               <div className="bg-amber-50/10 w-full  px-8 py-2 btnoptions flex items-center justify-center gap-3">
                 <i className="fa-solid fa-address-card"></i>
                 <a className="btnoptions  text-2xl md:text-base  " href="#sobre">Sobre</a>
               </div>
+              </Link>
 
+              <Link href="#habilidade">
               <div className="bg-amber-50/10 w-full  px-8 py-2 btnoptions flex items-center justify-center gap-3">
                 <i className="fa-solid fa-brush"></i>
                 <a className="btnoptions  text-2xl md:text-base  " href="#habilidade">Habilidades</a>
               </div>
+              </Link>
 
+              <Link href="#projetos">
               <div className="bg-amber-50/10 w-full  px-8 py-2 btnoptions flex items-center justify-center gap-3">
                 <i className="fa-solid fa-hammer"></i>
                 <a className="btnoptions  text-2xl md:text-base  " href="#projetos">Projetos</a>
               </div>
+              </Link>
 
+              <Link href="#contato">
               <div className="bg-amber-50/10 w-full  px-8 py-2 btnoptions flex items-center justify-center gap-3">
                 <i className="fa-solid fa-id-card"></i>
                 <a className="btnoptions  text-2xl md:text-base  " href="#contato">Contato</a>
               </div>
+              </Link>
+
 
             </div>
           </div>
@@ -180,8 +198,8 @@ export default function Home() {
 
 
       {/* SOBRE */}
-      <section id="sobre" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55">
-        <h2 className="mb-8 text-center text-3xl text-blue-500">SOBRE MIM</h2>
+      <section id="sobre" className="mx-auto max-w-6xl px-4 py-16 grid grid-cols-1 md:py-24 md:pt-55  max-[600px]:pt-30">
+        <h2 className="mb-8 text-center text-3xl text-blue-500 max-[600px]:text-2xl">SOBRE MIM</h2>
 
         <div className="grid gap-8 xl:grid-cols-2 xl:items-center">
           <div className="flex flex-col items-center xl:items-start gap-6">
@@ -205,7 +223,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-white/90 leading-relaxed text-2xl md:text-3xl md:p-8">
+          <div className="text-white/90 leading-relaxed text-2xl md:text-3xl md:p-8 max-[600px]:text-1xl">
             Moro em Florianópolis. Sou estudante de <span className="text-blue-500">Engenharia de Software</span> pela Faculdade Anhanguera,
             atualmente cursando o 4º período. Sempre fui apaixonado por <span className="text-blue-500">tecnologia</span>, inovação e por entender como
             as coisas funcionam por trás dos bastidores. Tenho estudado bastante <span className="text-blue-500">POO</span>, desenvolvimento web com{" "}
@@ -217,9 +235,9 @@ export default function Home() {
       </section>
 
       {/* HABILIDADES (mantive seu visual e caixas, só organizei grid/spacing) */}
-      <section id="habilidade" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen ">
-        <div className="text-center space-y-2 mb-10 ">
-          <h2 className="text-3xl text-blue-500">HABILIDADES</h2>
+      <section id="habilidade" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen  max-[600px]:pt-30">
+        <div className="text-center space-y-2 mb-10  ">
+          <h2 className="text-3xl text-blue-500 max-[600px]:text-2xl">HABILIDADES</h2>
           <p className="md:text-2xl text-white/90 text-lg">
             Aqui estão algumas das minhas habilidades e <span className="text-blue-500">tecnologias que domino.</span>
           </p>
@@ -358,7 +376,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="md:visible h-fit mt-5">
+        <div className="md:visible h-fit mt-5 max-[600px]:hidden  ">
             <Image className="rotate h-25 w-25 mx-auto -mt-2 opacity-90 " src={MeiaIngrenagem} alt="" aria-hidden />
 
           </div>
@@ -366,9 +384,9 @@ export default function Home() {
 
 
       {/* PROJETOS */}
-      <section id="projetos" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen">
+      <section id="projetos" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen  max-[600px]:pt-30">
         <div className="flex justify-center mb-6 ">
-          <h2 className="text-3xl text-blue-500">PROJETOS</h2>
+          <h2 className="text-3xl text-blue-500 max-[600px]:text-2xl">PROJETOS</h2>
         </div>
 
         <div className="snap-x containerSlide w-full flex overflow-x-auto space-x-4 p-2 scrollbar-hide md:h-200">
@@ -393,8 +411,8 @@ export default function Home() {
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen">
-        <h2 className="text-3xl text-center text-blue-500 mb-10">FALE COMIGO</h2>
+      <section id="contato" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen  max-[600px]:pt-30">
+        <h2 className="text-3xl text-center text-blue-500 mb-10 max-[600px]:text-2xl">FALE COMIGO</h2>
 
         <div className="grid gap-10 xl:grid-cols-2 xl:items-star ">
           <div className="text-white/90 space-y-3 md:text-lg text-lg">
