@@ -6,6 +6,7 @@ import projetoBancoPessoalImg from "../assets/imgbancopessoal.png"
 import projetoEcomerceImg from "../assets/imgProjetoE-comerce.png"
 import projetoToDoListImg from "../assets/imgtodoList.png"
 import Link from "next/link"
+import cors from "cors";
 
 const projects = [
   {
@@ -45,6 +46,19 @@ const socials = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
+      <div className="sticky lg:invisible h-12 w-12 rounded-full bg-white/10 backdrop-blur border-b border-white/10 shadow-xl/30 absolute top-100 left-89 flex items-center justify-center">
+        <Link href="#home"
+          rel="stylesheet"
+          href="#home"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/Z1jrGCEXuWq5PvX+V4y0H3ZZYtst4yBoF7+amXWWvJ8YUE04h6Dk2Mn2V6uC5IBaDw=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+          className=" w-full h-full flex items-center justify-center text-blue-500 text-2xl hover:point"
+         > <i className="fa-regular fa-circle-up " ></i> </Link>
+         
+          
+         
+      </div>
       {/* HEADER */}
       <header className="sticky top-0 z-50 w-full bg-white/10 backdrop-blur border-b border-white/10 shadow-xl/30 ">
         <div className="mx-auto max-w-6xl px-4 py-4 ">
@@ -81,12 +95,12 @@ export default function Home() {
           </div>
         </div>
 
-              <div className="grid-cols-1 grid items-center justify-center gap-8 w-full md:flex md:flex-row  md:visible p-5 md:px-15"> 
+              <div className="hidden grid-cols-1 grid items-center justify-center gap-8 w-full md:flex md:flex-row  md:visible p-5 md:px-15"> 
               <Link className="bg-amber-50/10 px-4 py-4 btnoptions flex items-center justify-center gap-3" href="/#">
                 <i className="fa-solid fa-house"></i>
               </Link>
               
-              <Link className=" bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center" href="#sobre">
+              <Link className=" bg-amber-50/10 px-4 py-2 btnoptions flex items-center justify-center gap-3" href="#sobre">
               
                 <i className="fa-solid fa-address-card"></i>
                 <a className="btnoptions  text-2xl md:text-1xl  " href="#sobre">Sobre</a>
@@ -119,11 +133,11 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative h-screen md:flex md: lg:h-[700px] xl:h-[800px] 2xl:h-[900px] md:h-screen">
+      <section className="relative h-screen md:flex lg:h-[700px] xl:h-[800px] 2xl:h-[900px] md:h-screen mt-2">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-5  h-full  justify-center items-center flex md:w-full  ">
           <div className="flex flex-col items-center justify-center text-center gap-6 space-y-4 md:w-full md:h-full md:space-y-50">
            
-            <div className="space-y-6  md:visible  ">
+            <div className="space-y-6  md:visible hidden  ">
               <h1 className="text-blue-500 text-3xl md:text-5xl font-semibold tracking-tight">
                 ENGENHEIRO DE SOFTWARE
               </h1>
@@ -180,7 +194,7 @@ export default function Home() {
 
 
       {/* SOBRE */}
-      <section id="sobre" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55">
+      <section id="sobre" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 h-scree pt-35">
         <h2 className="mb-8 text-center text-3xl text-blue-500">SOBRE MIM</h2>
 
         <div className="grid gap-8 xl:grid-cols-2 xl:items-center">
@@ -217,7 +231,7 @@ export default function Home() {
       </section>
 
       {/* HABILIDADES (mantive seu visual e caixas, só organizei grid/spacing) */}
-      <section id="habilidade" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen ">
+      <section id="habilidade" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen h-screen pt-30 mb-100 ">
         <div className="text-center space-y-2 mb-10 ">
           <h2 className="text-3xl text-blue-500">HABILIDADES</h2>
           <p className="md:text-2xl text-white/90 text-lg">
@@ -358,7 +372,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="md:visible h-fit mt-5">
+        <div className="md:visible h-fit mt-5 hidden">
             <Image className="rotate h-25 w-25 mx-auto -mt-2 opacity-90 " src={MeiaIngrenagem} alt="" aria-hidden />
 
           </div>
@@ -366,7 +380,7 @@ export default function Home() {
 
 
       {/* PROJETOS */}
-      <section id="projetos" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen">
+      <section id="projetos" className="mx-auto max-w-6xl px-4  md:py-24 md:pt-55 md:h-screen  h-screen md:grid-cols-1 md:col-span-1 pt-30 ">
         <div className="flex justify-center mb-6 ">
           <h2 className="text-3xl text-blue-500">PROJETOS</h2>
         </div>
@@ -384,7 +398,7 @@ export default function Home() {
                 <i className=" fa-brands fa-github text-blue-400" />
               </a>
 
-              <div className="flex justify-center mt-2 md:mt-8  md:h-120 md:">
+              <div className="flex justify-center mt-2 md:mt-8  md:h-120 ">
                 <Image className={`efectProjetos ${p.imgClass}`} src={p.img} alt={p.alt} />
               </div>
             </div>
@@ -393,7 +407,7 @@ export default function Home() {
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen">
+      <section id="contato" className="mx-auto max-w-6xl px-4 py-16 md:py-24 md:pt-55 md:h-screen h-screen pt-30">
         <h2 className="text-3xl text-center text-blue-500 mb-10">FALE COMIGO</h2>
 
         <div className="grid gap-10 xl:grid-cols-2 xl:items-star ">
