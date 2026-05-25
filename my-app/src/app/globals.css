@@ -1,81 +1,102 @@
-html { scroll-behavior: smooth; }
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-
-
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
-
-
-.float-up-down {
-  animation: upDown 2s ease-in-out infinite;
+body {
+  margin: 0;
+  background: #09090b;
 }
 
-@keyframes upDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px); /* sobe 20px */
-  }
+::selection {
+  background: rgba(103, 232, 249, 0.28);
+  color: #ffffff;
 }
 
-.rotate {
-  animation: spin 3s linear infinite;
+.site-shell {
+  background:
+    radial-gradient(circle at 20% 12%, rgba(103, 232, 249, 0.14), transparent 28rem),
+    radial-gradient(circle at 82% 22%, rgba(253, 224, 71, 0.08), transparent 24rem),
+    linear-gradient(180deg, #09090b 0%, #111113 44%, #09090b 100%);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.rotate-slow {
+  animation: spin 14s linear infinite;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  filter: blur(8px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease,
+    filter 0.7s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.skill-bar {
+  width: 0;
+  transition: width 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--reveal-delay, 0ms) + 160ms);
+}
+
+.reveal-on-scroll.is-visible .skill-bar {
+  width: var(--skill-level);
 }
 
 @keyframes spin {
-  0% {
+  from {
     transform: rotate(0deg);
   }
-  100% {
+
+  to {
     transform: rotate(360deg);
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 
-.btnoptions{
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 
+  .skill-bar {
+    width: var(--skill-level);
+  }
 }
-
-.btnoptions:hover{
-  background: linear-gradient(90deg, #184597, #3362a8, #6e8cdf);
-  background-size: 200% 200%;
-  border-radius: 12px;
-  transition: all 0.2s ease-in-out;
-  
-  transform: scale(1s);
-  animation:  3s ease infinite;
-}
-
-
-.btnoptionsBtn-RedesSociais:hover{
-  color:aliceblue;
-  transform:skew(15deg);
-  transition: all 4ms ease;
-  transform: scale(4s);
-  animation:  3s ease infinite;
-}
-
-.efectProjetos:hover{
-  
-  transform:skew(1deg);
-  transition: all 1s ease-in-out;
-  transform: scale(1.2);
-
-  animation:  3s ease-in;
-}
-
-
-.nivel {
-  
-  background: linear-gradient(90deg, #1b056b, #3458b9,#69b3d4);
-  border-radius: 30px;
-  transition: width 3s ease-in;
-}
-
