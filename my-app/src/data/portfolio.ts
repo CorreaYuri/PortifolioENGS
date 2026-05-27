@@ -1,4 +1,4 @@
-import projetoBancoPessoalImg from "../assets/imgbancopessoal.png"
+﻿import projetoBancoPessoalImg from "../assets/imgbancopessoal.png"
 import projetoEcomerceImg from "../assets/imgProjetoE-comerce.png"
 import projetoToDoListImg from "../assets/imgtodoList.png"
 
@@ -40,6 +40,16 @@ export const projects = [
     kind: "Em desenvolvimento",
     status: "Em desenvolvimento",
     tags: ["Nexa", "Dashboard", "NFC/RFID", "Mobile", "Vendas", "Gestão de consumo"],
+  },
+  {
+    title: "CS Command",
+    slug: "cs-command",
+    desc: "Central interna de Customer Success criada pela Nexa para organizar clientes, unidades, contatos, feedbacks, tickets, tarefas, pesquisas, planos de ação, saúde do cliente e histórico de relacionamento.",
+    href: "",
+    initials: "CS",
+    kind: "Produto Nexa",
+    status: "Documentado",
+    tags: ["Nexa", "Customer Success", "Tickets", "NPS", "Health Score", "Operação"],
   },
   {
     title: "Nexa Plataforma Operacional",
@@ -116,6 +126,13 @@ export const projectDetails = {
     features: ["Dashboard de vendas e transações", "Pulseiras NFC/RFID", "Cartão de consumo", "Controle de caixa", "Relatórios operacionais", "Interface mobile para consumo"],
     stack: ["Next.js", "TypeScript", "APIs", "Dashboard", "NFC/RFID", "Design system"],
     impact: "A proposta é reduzir atrito na operação, dar visão em tempo real ao gestor e melhorar a experiência do cliente durante o evento.",
+  },
+  "cs-command": {
+    problem: "Times de Customer Success precisam transformar interações, feedbacks, riscos e compromissos em dados acionáveis, com dono, prazo, status e retorno claro ao cliente.",
+    role: "Produto Nexa documentado para a operação interna de CS da CityFoods, com definição de requisitos, identidade visual, arquitetura frontend, modelo de dados e roadmap evolutivo.",
+    features: ["Clientes e unidades", "Contatos", "Feedbacks", "Tickets internos", "Tarefas e follow-ups", "Pesquisas e NPS", "Planos de ação", "Health Score"],
+    stack: ["Next.js", "App Router", "React", "CSS tokens", "localStorage no MVP", "Prisma futuro"],
+    impact: "Centraliza o histórico de relacionamento, reduz perda de contexto, evidencia clientes em risco e ajuda o CS a acompanhar ações críticas até o retorno ao cliente.",
   },
   "nexa-plataforma-operacional": {
     problem: "Empresas precisam centralizar operação, clientes, projetos, financeiro, documentos e atendimento em uma plataforma organizada.",

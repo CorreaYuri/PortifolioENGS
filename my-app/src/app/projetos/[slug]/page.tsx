@@ -1,3 +1,4 @@
+﻿import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
@@ -42,6 +43,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project || !details) notFound()
 
   const status = "status" in project ? project.status : project.href ? "Publicado" : "Em breve"
+  const hasCover = "img" in project
 
   return (
     <main className="site-shell min-h-screen text-white">
@@ -56,14 +58,46 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           Voltar para projetos
         </Link>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div className="premium-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-sm font-medium text-cyan-100">
-              <i className="fa-solid fa-diagram-project" aria-hidden />
-              {project.kind}
-            </p>
-            <h1 className="text-4xl font-semibold tracking-normal text-white md:text-6xl">{project.title}</h1>
-            <p className="mt-6 text-lg leading-8 text-white/68">{project.desc}</p>
+        <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04]">
+          <div className="relative min-h-[18rem] overflow-hidden border-b border-white/10 bg-zinc-950 md:min-h-[26rem]">
+            {hasCover ? (
+              <Image
+                src={project.img}
+                alt={project.alt}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 1120px"
+                className="object-cover opacity-85"
+              />
+            ) : (
+              <div className="project-gradient flex min-h-[18rem] items-center justify-center md:min-h-[26rem]">
+                <div className="text-center">
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-100/55">{project.kind}</p>
+                  <p className="mt-4 text-7xl font-semibold tracking-normal text-white md:text-8xl">{project.initials}</p>
+                </div>
+              </div>
+            )}
+
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent p-6 md:p-8">
+              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-sm font-medium text-cyan-100">
+                <i className="fa-solid fa-image" aria-hidden />
+                {hasCover ? "Capa do projeto" : "Capa provisória"}
+              </p>
+              <h1 className="max-w-4xl text-4xl font-semibold tracking-normal text-white md:text-6xl">{project.title}</h1>
+            </div>
+          </div>
+
+          <div className="p-6 md:p-8">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-sm font-medium text-cyan-100">
+                <i className="fa-solid fa-diagram-project" aria-hidden />
+                {project.kind}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1 text-sm text-white/55">
+                <i className={status === "Em desenvolvimento" ? "fa-solid fa-code" : "fa-regular fa-clock"} aria-hidden />
+                {status}
+              </span>
+            </div>
 
             <div className="mt-6 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
@@ -97,54 +131,69 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </a>
             </div>
           </div>
-
-          <div className="grid gap-4">
-            {[
-              { label: "Status", value: status, icon: "fa-solid fa-code" },
-              { label: "Meu papel", value: details.role, icon: "fa-solid fa-user-gear" },
-              { label: "Problema", value: details.problem, icon: "fa-solid fa-bullseye" },
-              { label: "Impacto esperado", value: details.impact, icon: "fa-solid fa-chart-line" },
-            ].map((item) => (
-              <article key={item.label} className="premium-card rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="mb-2 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-cyan-200/70">
-                  <i className={item.icon} aria-hidden />
-                  {item.label}
-                </p>
-                <p className="leading-7 text-white/68">{item.value}</p>
-              </article>
-            ))}
-          </div>
         </div>
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-2">
-          <section className="premium-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-            <h2 className="inline-flex items-center gap-2 text-2xl font-semibold text-white">
-              <i className="fa-solid fa-list-check text-cyan-200" aria-hidden />
-              Funcionalidades
-            </h2>
-            <div className="mt-5 grid gap-3">
-              {details.features.map((feature) => (
-                <div key={feature} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-950/40 p-4 text-white/68">
-                  <i className="fa-solid fa-check text-emerald-300" aria-hidden />
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
-          </section>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+          <article className="max-w-3xl space-y-10 text-lg leading-8 text-white/72">
+            <section>
+              <p className="mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200/70">
+                <i className="fa-solid fa-book-open" aria-hidden />
+                Estudo do projeto
+              </p>
+              <p>{project.desc}</p>
+            </section>
 
-          <section className="premium-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
-            <h2 className="inline-flex items-center gap-2 text-2xl font-semibold text-white">
-              <i className="fa-solid fa-layer-group text-cyan-200" aria-hidden />
-              Stack e competências
-            </h2>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {details.stack.map((item) => (
-                <span key={item} className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-sm text-cyan-100">
-                  {item}
-                </span>
-              ))}
-            </div>
-          </section>
+            <section>
+              <h2 className="text-2xl font-semibold text-white">Problema</h2>
+              <p className="mt-3">{details.problem}</p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-white">Meu papel</h2>
+              <p className="mt-3">{details.role}</p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-white">Funcionalidades principais</h2>
+              <ul className="mt-4 grid gap-3 text-base leading-7 text-white/68 sm:grid-cols-2">
+                {details.features.map((feature) => (
+                  <li key={feature} className="flex gap-3">
+                    <i className="fa-solid fa-check mt-1 text-sm text-emerald-300" aria-hidden />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-white">Impacto</h2>
+              <p className="mt-3">{details.impact}</p>
+            </section>
+          </article>
+
+          <aside className="h-fit rounded-2xl border border-white/10 bg-white/[0.04] p-5 lg:sticky lg:top-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/40">Resumo</p>
+            <dl className="mt-5 space-y-5">
+              <div>
+                <dt className="text-xs uppercase tracking-[0.16em] text-cyan-200/65">Status</dt>
+                <dd className="mt-1 text-sm text-white/70">{status}</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-[0.16em] text-cyan-200/65">Tipo</dt>
+                <dd className="mt-1 text-sm text-white/70">{project.kind}</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-[0.16em] text-cyan-200/65">Stack</dt>
+                <dd className="mt-2 flex flex-wrap gap-2">
+                  {details.stack.map((item) => (
+                    <span key={item} className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs text-cyan-100">
+                      {item}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+          </aside>
         </div>
       </section>
     </main>

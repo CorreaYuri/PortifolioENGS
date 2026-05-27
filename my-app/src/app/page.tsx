@@ -1,4 +1,4 @@
-import Image from "next/image"
+﻿import Image from "next/image"
 import Link from "next/link"
 import Script from "next/script"
 import type { CSSProperties } from "react"
@@ -18,9 +18,9 @@ import { SocialLinks } from "../components/SocialLinks"
 import { site, socials } from "../data/portfolio"
 
 const highlights = [
-  { value: "Fundador", label: "Nexa como empresa de produtos e serviços", icon: "fa-solid fa-rocket" },
-  { value: "SaaS", label: "Produtos multitenant e operação real", icon: "fa-solid fa-layer-group" },
-  { value: "Backend", label: "APIs, regras de negócio e integrações", icon: "fa-solid fa-code-branch" },
+  { value: "Fundador", label: "Nexa como base para produtos e soluções sob demanda", icon: "fa-solid fa-rocket" },
+  { value: "Produto", label: "Sistemas pensados para operação real e evolução contínua", icon: "fa-solid fa-layer-group" },
+  { value: "Backend", label: "APIs, regras de negócio, dados e integrações", icon: "fa-solid fa-code-branch" },
 ]
 
 const focusAreas = [
@@ -38,7 +38,7 @@ const focusAreas = [
 ]
 
 const nexaPillars = [
-  { text: "Produtos próprios como Nexa, Entregoo e 1400CRM", icon: "fa-solid fa-boxes-stacked" },
+  { text: "Produtos próprios como NexaClub, CS Command, Entregoo e 1400CRM", icon: "fa-solid fa-boxes-stacked" },
   { text: "Desenvolvimento sob demanda para clientes", icon: "fa-solid fa-screwdriver-wrench" },
   { text: "ERP, SaaS, CRM, portais e integrações", icon: "fa-solid fa-diagram-project" },
   { text: "Documentação técnica, go-live e evolução contínua", icon: "fa-solid fa-file-lines" },
@@ -200,17 +200,17 @@ export default function Home() {
               <div className="soft-pulse mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-sm text-emerald-100">
                 <span className="h-2 w-2 rounded-full bg-emerald-300" />
                 <i className="fa-solid fa-sparkles text-emerald-200" aria-hidden />
-                Fundador da Nexa | Produtos digitais e software sob demanda
+                Fundador da Nexa | Produto, backend e sistemas sob demanda
               </div>
 
               <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-white md:text-6xl">
-                Engenheiro de Software criando produtos próprios e sistemas para empresas que precisam operar melhor.
+                Engenheiro de Software criando produtos digitais e sistemas para operações que precisam ganhar clareza.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-                Sou fundador da Nexa, uma empresa criada para vender produtos digitais próprios e desenvolver soluções
-                sob demanda para clientes. Minha atuação une backend, POO, APIs, modelagem de domínio e visão de produto
-                para transformar processos reais em sistemas organizados, seguros e evolutivos.
+                Sou fundador da Nexa, onde desenvolvo produtos próprios e soluções sob demanda. Minha atuação une
+                backend, POO, APIs, modelagem de domínio e visão de produto para transformar processos reais em sistemas
+                organizados, seguros e preparados para evoluir.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -299,7 +299,7 @@ export default function Home() {
                 Nexa
               </p>
               <h2 className="text-3xl font-semibold tracking-normal text-white md:text-4xl">
-                Uma empresa de produtos próprios e desenvolvimento para negócios reais.
+                Uma empresa para transformar processos reais em produtos digitais consistentes.
               </h2>
               <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-cyan-300/20 bg-cyan-300/10 px-4 py-3 text-cyan-100">
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-zinc-950/70 text-lg font-semibold">NX</span>
@@ -311,9 +311,9 @@ export default function Home() {
             </div>
             <div className="space-y-5 text-lg leading-8 text-white/72">
               <p>
-                A proposta da Nexa é construir produtos digitais próprios, como plataformas operacionais, SaaS
-                multitenant e centrais de atendimento, além de desenvolver soluções para empresas que precisam organizar
-                operação, atendimento, vendas, documentos, financeiro e relacionamento com clientes.
+                A proposta da Nexa é construir produtos digitais próprios e soluções sob demanda com base em problemas
+                concretos de operação. O foco está em organizar dados, atendimento, vendas, documentos, financeiro,
+                relacionamento com clientes e fluxos internos que precisam sair da planilha ou da memória individual.
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 {nexaPillars.map((item) => (
@@ -382,7 +382,7 @@ export default function Home() {
           <SectionTitle
             eyebrow="Perfil"
             icon="fa-solid fa-user-astronaut"
-            description="Uma visão rápida sobre formação, empreendedorismo, foco técnico e jeito de trabalhar."
+            description="Uma visão direta sobre formação, empreendedorismo, foco técnico e jeito de trabalhar."
           >
             Sobre mim
           </SectionTitle>
@@ -401,8 +401,8 @@ export default function Home() {
 
             <div className="space-y-5 text-lg leading-8 text-white/72">
               <p>
-                Sou Yuri Corrêa, engenheiro de software e fundador da Nexa. Tenho interesse em construir sistemas
-                completos, do desenho da regra de negócio até a entrega da experiência final para o usuário.
+                Sou Yuri Corrêa, engenheiro de software e fundador da Nexa. Gosto de construir sistemas completos, do
+                desenho da regra de negócio até a entrega da experiência final para o usuário.
               </p>
               <p>
                 Meu foco técnico está em Programação Orientada a Objetos, backend, APIs, CRUD, modelagem de domínio,
@@ -410,8 +410,8 @@ export default function Home() {
                 produtos utilizáveis de ponta a ponta.
               </p>
               <p>
-                Na Nexa, busco unir visão de produto, execução técnica e entendimento operacional: criar soluções que
-                possam virar negócio, atender clientes e evoluir com documentação, governança, integrações e consistência.
+                Na Nexa, uno visão de produto, execução técnica e entendimento operacional para criar soluções que possam
+                virar negócio, atender clientes e evoluir com documentação, governança, integrações e consistência.
               </p>
             </div>
           </div>
@@ -426,7 +426,7 @@ export default function Home() {
                   Flexibilidade
                 </p>
                 <h2 className="text-3xl font-semibold tracking-normal text-white md:text-4xl">
-                  Flexível tecnicamente e próximo das pessoas envolvidas no produto.
+                  Flexível tecnicamente e próximo das pessoas que usam, vendem e operam o produto.
                 </h2>
                 <p className="mt-5 leading-8 text-white/68">
                   Tenho facilidade para me adaptar ao contexto: posso aprofundar na parte técnica, conversar com usuários,
@@ -504,7 +504,7 @@ export default function Home() {
                 IA no desenvolvimento
               </p>
               <h2 className="text-3xl font-semibold tracking-normal text-white md:text-4xl">
-                Sei trabalhar com IA como parceira de engenharia, não como atalho sem critério.
+                Uso IA como parceira de engenharia, com critério técnico e responsabilidade sobre a entrega.
               </h2>
               <p className="mt-5 leading-8 text-white/68">
                 Uso ferramentas de IA para ganhar velocidade, melhorar análise técnica e documentar decisões, sempre validando
@@ -548,8 +548,8 @@ export default function Home() {
 
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <div className="space-y-6 text-lg leading-8 text-white/72">
-              <p>Se você quer conversar sobre oportunidades, projetos, produtos digitais ou tecnologia, me chama.</p>
-              <p>Estou aberto a conexões, feedbacks, parcerias e desenvolvimento de soluções sob demanda.</p>
+              <p>Se você quer conversar sobre oportunidades, produtos digitais, sistemas sob demanda ou tecnologia, me chama.</p>
+              <p>Estou aberto a conexões, feedbacks, parcerias e projetos em que software resolva um problema real.</p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href={`https://wa.me/${site.phoneE164.replace("+", "")}`}

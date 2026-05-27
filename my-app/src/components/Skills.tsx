@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react"
+﻿import type { CSSProperties } from "react"
 import { skillGroups } from "../data/portfolio"
 import { Reveal } from "./Reveal"
 

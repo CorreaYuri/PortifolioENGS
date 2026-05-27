@@ -72,7 +72,7 @@ export function ContactForm() {
             value={data.email}
             onChange={(e) => setData((s) => ({ ...s, email: e.target.value }))}
             autoComplete="email"
-            placeholder="voce@email.com"
+            placeholder="seu.email@dominio.com"
             required
           />
         </div>
@@ -104,7 +104,7 @@ export function ContactForm() {
         </button>
 
         {status === "ok" && <p className="text-sm text-emerald-300">Mensagem enviada com sucesso.</p>}
-        {status === "error" && <p className="text-sm text-red-300">Erro ao enviar. Tente novamente.</p>}
+        {status === "error" && <p className="text-sm text-red-300">Não foi possível enviar agora. Tente novamente em instantes.</p>}
       </div>
     </form>
   )

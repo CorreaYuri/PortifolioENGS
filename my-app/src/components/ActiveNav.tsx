@@ -11,27 +11,30 @@ function useActiveSection() {
   const [activeId, setActiveId] = useState(sectionIds[0])
 
   useEffect(() => {
-    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[]
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[]
+
     if (sections.length === 0) return
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+    function updateActiveSection() {
+      const headerOffset = 120
+      const currentPosition = window.scrollY + headerOffset
+      const currentSection = sections.reduce((active, section) => {
+        return section.offsetTop <= currentPosition ? section : active
+      }, sections[0])
 
-        if (visibleEntries[0]) {
-          setActiveId(visibleEntries[0].target.id)
-        }
-      },
-      {
-        rootMargin: "-35% 0px -50% 0px",
-        threshold: [0.08, 0.2, 0.45, 0.7],
-      },
-    )
+      setActiveId(currentSection.id)
+    }
 
-    sections.forEach((section) => observer.observe(section))
-    return () => observer.disconnect()
+    updateActiveSection()
+    window.addEventListener("scroll", updateActiveSection, { passive: true })
+    window.addEventListener("resize", updateActiveSection)
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection)
+      window.removeEventListener("resize", updateActiveSection)
+    }
   }, [])
 
   return activeId
@@ -41,7 +44,7 @@ export function ActiveNav() {
   const activeId = useActiveSection()
 
   return (
-    <nav className="hidden items-center gap-1 md:flex" aria-label="Navegacao principal">
+    <nav className="hidden items-center gap-1 md:flex" aria-label="Navegação principal">
       {navItems.map((item) => {
         const id = item.href.replace("#", "")
         const isActive = activeId === id
@@ -51,10 +54,10 @@ export function ActiveNav() {
             key={item.href}
             href={item.href}
             aria-current={isActive ? "page" : undefined}
-            className={`nav-link inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-300 ${
+            className={`nav-link inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-300 ${
               isActive
-                ? "is-active bg-cyan-300/12 text-cyan-100 shadow-[0_0_24px_rgba(103,232,249,0.16)]"
-                : "text-white/70 hover:bg-white/10 hover:text-white"
+                ? "is-active border-cyan-300/45 bg-cyan-300/12 text-cyan-100 shadow-[0_0_24px_rgba(103,232,249,0.16)]"
+                : "border-transparent text-white/70 hover:border-white/10 hover:bg-white/10 hover:text-white"
             }`}
           >
             <i className={`${item.icon} text-[0.8rem]`} aria-hidden />
@@ -89,7 +92,7 @@ export function MobileNav() {
           isOpen ? "is-open" : ""
         }`}
       >
-        <nav className="grid gap-1 p-2" aria-label="Navegacao principal mobile">
+        <nav className="grid gap-1 p-2" aria-label="Navegação principal mobile">
           {navItems.map((item) => {
             const id = item.href.replace("#", "")
             const isActive = activeId === id
@@ -100,8 +103,10 @@ export function MobileNav() {
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 aria-current={isActive ? "page" : undefined}
-                className={`mobile-nav-link flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-300 ${
-                  isActive ? "bg-cyan-300/12 text-cyan-100" : "text-white/68 hover:bg-white/[0.06] hover:text-white"
+                className={`mobile-nav-link flex items-center gap-3 rounded-xl border px-4 py-3 text-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-300 ${
+                  isActive
+                    ? "border-cyan-300/40 bg-cyan-300/12 text-cyan-100"
+                    : "border-transparent text-white/68 hover:border-white/10 hover:bg-white/[0.06] hover:text-white"
                 }`}
               >
                 <i className={`${item.icon} w-4 text-cyan-200/80`} aria-hidden />

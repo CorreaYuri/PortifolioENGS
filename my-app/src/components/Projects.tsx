@@ -1,4 +1,4 @@
-import Image from "next/image"
+﻿import Image from "next/image"
 import Link from "next/link"
 import { projects } from "../data/portfolio"
 import { Reveal } from "./Reveal"
@@ -40,7 +40,7 @@ function ProjectCard({ p, index }: { p: (typeof projects)[number]; index: number
                 {p.initials}
               </p>
               <p className="mt-2 max-w-xs text-sm text-white/55">
-                {isNexaClub ? "Gestão inteligente. Experiência única." : "Produto real, regras de negócio e arquitetura aplicada."}
+                {isNexaClub ? "Gestão inteligente. Experiência única." : "Produto Nexa com arquitetura, operação e documentação aplicadas."}
               </p>
             </div>
           </div>
