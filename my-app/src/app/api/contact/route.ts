@@ -19,7 +19,7 @@ function escapeHtml(value: string) {
 export async function POST(req: Request) {
   try {
     const key = process.env.RESEND_API_KEY
-    const to = process.env.CONTACT_TO_EMAIL
+    const to = process.env.CONTACT_TO_EMAIL ?? "fratello.yuri@gmail.com"
     const from = process.env.CONTACT_FROM_EMAIL
 
     if (!key || !to || !from) {

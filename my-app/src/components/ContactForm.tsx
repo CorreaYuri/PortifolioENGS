@@ -43,6 +43,7 @@ export function ContactForm() {
       <div className="grid gap-5">
         <div className="grid gap-2">
           <label className="text-sm font-medium text-white/70" htmlFor="name">
+            <i className="fa-solid fa-user mr-2 text-cyan-200/70" aria-hidden />
             Nome
           </label>
           <input
@@ -60,6 +61,7 @@ export function ContactForm() {
 
         <div className="grid gap-2">
           <label className="text-sm font-medium text-white/70" htmlFor="email">
+            <i className="fa-solid fa-envelope mr-2 text-cyan-200/70" aria-hidden />
             E-mail
           </label>
           <input
@@ -77,6 +79,7 @@ export function ContactForm() {
 
         <div className="grid gap-2">
           <label className="text-sm font-medium text-white/70" htmlFor="message">
+            <i className="fa-solid fa-message mr-2 text-cyan-200/70" aria-hidden />
             Mensagem
           </label>
           <textarea

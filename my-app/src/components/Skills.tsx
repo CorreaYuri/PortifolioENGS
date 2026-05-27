@@ -2,6 +2,13 @@ import type { CSSProperties } from "react"
 import { skillGroups } from "../data/portfolio"
 import { Reveal } from "./Reveal"
 
+const groupIcons: Record<string, string> = {
+  Linguagens: "fa-solid fa-terminal",
+  "Desenvolvimento web": "fa-solid fa-window-restore",
+  "Backend e arquitetura": "fa-solid fa-server",
+  "Produto e operação": "fa-solid fa-compass-drafting",
+}
+
 export function Skills() {
   return (
     <div className="grid gap-5 md:grid-cols-2">
@@ -13,7 +20,10 @@ export function Skills() {
           className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300/35 hover:bg-white/[0.06]"
         >
           <div className="mb-5 flex items-center justify-between gap-3">
-            <h3 className="text-lg font-semibold text-white">{group.title}</h3>
+            <h3 className="inline-flex items-center gap-2 text-lg font-semibold text-white">
+              <i className={`${groupIcons[group.title] ?? "fa-solid fa-code"} text-cyan-200/80`} aria-hidden />
+              <span>{group.title}</span>
+            </h3>
             <span className="h-px flex-1 bg-white/10" />
           </div>
 
